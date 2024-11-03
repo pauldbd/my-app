@@ -1,0 +1,30 @@
+/* Home.css */
+
+.home-container {
+    width: 100vw;
+    text-align: center;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    align-items: center;
+}
+
+  
+.login button{
+    background-color: transparent;
+    border: none;
+    transition-duration: 0.4s;
+    margin: auto;
+    cursor: pointer;
+    font-size: 1vw;
+    margin-top: 45vh;
+    color: #333;
+}
+
+.login button:hover{
+    opacity: 0.4;
+}

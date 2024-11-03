@@ -1,0 +1,17 @@
+/* About.css */
+
+.description {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    font-size: 1vw;
+}
+
+.description p{
+    margin-top: 45vh;
+}
+
+

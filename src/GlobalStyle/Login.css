@@ -1,0 +1,59 @@
+/* Artists.css */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Center the form vertically */
+    background-color: #ffffff; /* White background */
+  }
+
+  .login-container a {
+    color: black;
+    text-decoration-line: none;
+  }
+  
+  form {
+    background: #ffffff; /* White form background */
+    padding: 2rem;
+    border-radius: 0; /* Square corners for minimalism */
+    width: 300px; /* Set a fixed width */
+  }
+
+  form * {
+    box-sizing: border-box;
+}
+
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #000000; /* Black border */
+    border-radius: 0; /* Square corners */
+    font-size: 14px;
+    transition: border-color 0.2s ease; /* Optional: keep it simple */
+  }
+  
+  input:focus {
+    border-color: #000000; /* Keep border color black on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #000000; /* Black button */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 0; /* Square corners */
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: #333333; /* Darker black on hover */
+  }
+  

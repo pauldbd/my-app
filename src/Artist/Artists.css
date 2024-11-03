@@ -1,0 +1,42 @@
+.song-table {
+    width: 90vw; /* Width of the table */
+    margin-left: 5vw; /* Centers the table horizontally */
+    border-collapse: collapse;
+}
+
+.song-viewer h2 {
+    text-align: center; /* Centers the heading */
+    display: flex; /* Enables flexbox layout */
+    justify-content: center; /* Centers the heading */
+    margin-bottom: 0px; /* Optional: space below the heading */
+}
+
+.song-table td, 
+.song-table th {
+    border: 1px solid #ddd; /* Border for table cells */
+    padding: 8px; /* Padding for table cells */
+    text-align: left; /* Align text to the left in table cells */
+}
+
+.song-addition {
+    width: 100vw; /* Full width for song addition section */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers items horizontally */
+}
+
+.upload-form {
+    display: flex; /* Enables flexbox for the upload form */
+    flex-direction: column; /* Stacks form inputs vertically */
+    align-items: center; /* Centers form inputs */
+    width: 90vw; /* Make form the same width as the table */
+    max-width: 500px; /* Optional: limit the max width */
+}
+
+.upload-form input,
+.upload-form button {
+    width: 100%; /* Make inputs and button take full width */
+    margin-bottom: 10px; /* Space between inputs */
+    padding: 10px; /* Padding for inputs and button */
+    box-sizing: border-box; /* Include padding in width */
+}
