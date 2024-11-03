@@ -47,6 +47,42 @@ function Listeners() {
     throw new Error("Song fetch failed.");
   }
 
+  const videoRef = useRef(null);
+  const [prediction, setPrediction] = useState(null);
+
+  useEffect(() => {
+      // Start video stream
+      navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
+          videoRef.current.srcObject = stream;
+      });
+  }, []);
+
+  const captureFrame = () => {
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+
+    canvas.width = videoRef.current.videoWidth;
+    canvas.height = videoRef.current.videoHeight;
+
+    // Draw the current frame to the canvas
+    context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+    
+    // Convert to base64
+    const dataURL = canvas.toDataURL("image/jpeg");
+    const base64Image = dataURL.split(",")[1]; // Strip the prefix
+
+    // Send to backend
+    fetch("http://localhost:5000/process_frame", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ image: base64Image }),
+    })
+        .then((res) => res.json())
+        .then((data) => setPrediction(data.prediction))
+        .catch((err) => console.error("Error:", err));
+  };
+
+
   if (!!userID) {
     return (
       <div className="viewer-wrapper">
@@ -57,12 +93,17 @@ function Listeners() {
             <audio controls src={() => {new Blob([songBytes], { type: "audio/mp3" })}}>
               Your browser does not support the audio element.
             </audio>
+
           </div>
           <div className="navigation-buttons">
             <button onClick={navigate("/listeners")}>Previous</button>
             <button onClick={navigate("/listeners")}>Next</button>
           </div>
         </div>
+        <h1>Real-Time Video Processing</h1>
+        <video ref={videoRef} autoPlay></video>
+        <button onClick={captureFrame}>Capture Frame</button>
+        {prediction && <p>Prediction: {JSON.stringify(prediction)}</p>}
       </div>
     );
   } else {
